@@ -21,23 +21,33 @@ $(function () {
   	});
 
   	// Плавный скроллинг
-	$('.go_to').click( function(){ // ловим клик по ссылке с классом go_to
-	var scroll_el = $(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
-        if ($(scroll_el).length != 0) { // проверим существование элемента чтобы избежать ошибки
-	    $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500); // анимируем скроллинг к элементу scroll_el
+	$('.go_to').click( function(){
+	var scroll_el = $(this).attr('href');
+        if ($(scroll_el).length != 0) {
+	    $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
         }
-	    return false; // выключаем стандартное действие
+	    return false;
     });
 
     // Hamburger
 	$('.menu-open').click(function (){
 		$('.menu-collapse').toggleClass('d-none').css('order', '1');
-		$('.main-menu__list').toggleClass('menu-opened');
+		$('.main-menu').toggleClass('menu-opened');
 	})
 
 	$('.menu-opened li a').click(function (){
 		$('.menu-collapse').toggleClass('d-none').css('order', '0');
 		$('.main-menu__list').toggleClass('menu-opened');
 	})
+
+  // Плавающая шапка
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 700){  
+            $('.header-top').addClass("sticky");
+        }
+        else{
+            $('.header-top').removeClass("sticky");
+        }
+    });
 
 });
