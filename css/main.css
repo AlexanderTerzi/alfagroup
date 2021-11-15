@@ -143,16 +143,75 @@ button, button:hover, button:focus, button:active {
   background: none;
   border: 0;
   color: #3f4b60;
-  line-height: 1.2;
   font-size: 26px;
   cursor: pointer;
   margin-top: 40px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.menu-open {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-top: 39px;
+}
+
+.menu-open span, .menu-open span:before, .menu-open span:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 3px;
+  background: #3f4b60;
+  margin-top: -1px;
+  margin-left: -15px;
+  border-radius: 4px;
+}
+
+.menu-open span:before, .menu-open span:after {
+  content: '';
+  display: block;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.menu-open span:before {
+  -webkit-transform: translateY(-10px);
+      -ms-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.menu-open span:after{
+  -webkit-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+.menu-btn_active span {
+  height: 0;
+}
+
+.menu-btn_active span:before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.menu-btn_active span:after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .menu-opened {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
-  padding: 20px;
+  padding: 30px;
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   -o-flex-direction: column;
@@ -1123,6 +1182,11 @@ button, button:hover, button:focus, button:active {
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
     right: 0;
+    top: -26px;
+  }
+  .menu-collapse {
+    min-height: 0 !important;
+    position: relative !important;
   }
   .main-menu__list {
     display: -webkit-box;
@@ -1137,6 +1201,9 @@ button, button:hover, button:focus, button:active {
     text-transform: none;
   }
   .main-menu .menu-opened {
+  }
+  .main-menu__item:not(:last-child) {
+    margin-bottom: 15px;
   }
   .request-card {
     width: 500px;
@@ -1301,6 +1368,9 @@ button, button:hover, button:focus, button:active {
   }
   .how {
     padding-bottom: 50px;
+  }
+  .menu-collapse {
+    width: 95%;
   }
 }
 
