@@ -834,6 +834,11 @@ button, button:hover, button:focus, button:active {
   margin-top: 21px;
 }
 
+.map-card__phone:hover, .map-card__mail:hover  {
+	color: inherit;
+	text-decoration: underline;
+}
+
 /* ------- Footer section ------- */
 
 .footer {
