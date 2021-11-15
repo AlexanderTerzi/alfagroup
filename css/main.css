@@ -98,7 +98,7 @@ button, button:hover, button:focus, button:active {
 
 .box-modal form {
   background: rgba(0, 0, 0, 1);
-  margin: 23px 30px 0 30px;
+  /*margin: 23px 30px 0 30px;*/
   padding: 31px 17px 58px 17px;
   width: 400px;
   height: 500px;
@@ -139,11 +139,11 @@ button, button:hover, button:focus, button:active {
   -ms-flex-direction: column;
   -o-flex-direction: column;
   flex-direction: column;
-  width: 33%;
   position: absolute;
-  right: -85px;
+  right: -100%;
   top: -35px;
   z-index: 10;
+  transition: all. 0.3s ease;
 }
 
 .menu__list.menu-opened .menu__item {
@@ -156,6 +156,14 @@ button, button:hover, button:focus, button:active {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.header-top.sticky {
+  transition: all 0.7s ease;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  background: rgb(255, 255, 255, 0.971);
+}
+
 /* ------- Header section ------- */
 
 .header {
@@ -165,6 +173,7 @@ button, button:hover, button:focus, button:active {
 .header-top {
   background: rgb(255, 255, 255, 0.871);
   padding: 3px 0;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
 }
 
 .header-top__logo {
@@ -411,8 +420,9 @@ button, button:hover, button:focus, button:active {
 
 .gallery__title {
   text-align: center;
-  margin-top: -9px;
   margin-bottom: 33px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gallery__title:before {
@@ -527,6 +537,7 @@ button, button:hover, button:focus, button:active {
   font-size: 23px;
   width: 464px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .request-card__subtitle_yellow {
@@ -846,6 +857,10 @@ button, button:hover, button:focus, button:active {
   font-size: 22px;
 }
 
+.footer__price br {
+  display: none;
+}
+
 .footer__price i {
   font-size: 32px;
   margin-left: 23px;
@@ -885,6 +900,28 @@ button, button:hover, button:focus, button:active {
 .footer-top__phone {
   color: #020202;
   font-family: 'CenturyGothic-Bold';
+}
+
+.box-modal {
+  position: relative;
+}
+
+.box-modal_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.box-modal form {
+  width: auto;
+  height: auto;
 }
 
 /* ------- Media Queries ------- */
@@ -933,6 +970,16 @@ button, button:hover, button:focus, button:active {
   }
 }
 
+/* 992 - 1050 px */
+@media screen and (max-width: 1050px) {
+  .request-card {
+    width: 450px;
+  }
+  .request-card__subtitle {
+    width: auto;
+  }
+}
+
 /* 768 - 991 px */
 @media screen and (max-width: 991px) {
   .header-top__contact {
@@ -977,10 +1024,52 @@ button, button:hover, button:focus, button:active {
     height: auto;
   }
   .gallery__title:before {
-    margin-left: 71px;
+    left: 0;
+    margin: 0;
   }
-  .menu-opened {
-    right: -45px;
+  .main-menu {
+    position: absolute;
+    transition: all 0.3s ease;
+    right: 0;
+  }
+  .main-menu__list {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-menu__item a {
+    text-transform: none;
+  }
+  .main-menu .menu-opened {
+  }
+  .request-card {
+    width: 500px;
+  }
+  .how__digit {
+    display: none;
+  }
+  .map-card__img {
+    display: none;
+  }
+  .map-card__title {
+    margin: 0;
+  }
+  .map-card__schedule_big {
+    display: inline;
+  }
+  .map-card__phone, .map-card__mail {
+    margin-top: 0;
+  }
+  .map-card {
+    width: 370px;
+    height: auto;
+    padding: 15px;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    top: auto;
+  }
+  .main-menu {
+    margin: 0;
   }
 }
 
@@ -1034,9 +1123,127 @@ button, button:hover, button:focus, button:active {
   .footer-top__phone {
     font-size: 15px;
   }
+  .slick-next {
+    right: 12px;
+  }
+  .slick-prev {
+    left: 12px;
+  }
+  .how__title:before, .gallery__title:before {
+    top: 7px;
+  }
+  .map-card {
+    width: 100%;
+  }
+  .map {
+    height: 670px;
+  }
+  .gallery__price {
+    margin-top: 30px;
+  }
+  .gallery {
+    padding: 45px 0;
+  }
+  .review {
+    padding-bottom: 30px;
+  }
+  .header-maincard__formsubtitle {
+    line-height: 1.4;
+  }
+  .how__card {
+    margin-top: 50px;
+  }
 }
 
 /* 320 - 575 px */
 @media screen and (max-width: 575px) {
-  
+  .footer__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__contact {
+    text-align: center;
+  }
+  .footer__btn {
+    margin: 7px auto 0;
+  }
+  .review__title {
+    width: auto;
+  }
+  .request-card {
+    width: 100%;
+  }
+  .gallery__price {
+    width: 90%;
+  }
+  .header-top__phone {
+    font-size: 18px;
+  }
+  .header-top__btn {
+    width: 183px;
+  }
+  .header-top__contact {
+    text-align: center;
+  }
+  .request form {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .header-maincard, .header-card {
+    width: 100%;
+  }
+  .header-card__item_left {
+    margin-bottom: 10px;
+  }
+  .how {
+    padding-bottom: 50px;
+  }
+}
+
+/* 320 - 430 px */
+@media screen and (max-width: 430px) {
+  .header-top__phone {
+    font-size: 15px;
+  }
+  .header-top__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .header-top__logo img{
+    width: 60px;
+  }
+  .header-top__btn {
+    margin-bottom: 10px;
+  }
+  .header-maincard form {
+    margin: 30px 0 0 0;
+  }
+  .advantages__text {
+    width: 100%;
+  }
+  .advantages {
+    padding: 15px 10px;
+  }
+  .footer__price {
+    word-wrap: break-word;
+    width: 100%;
+  }
+  .footer__price br {
+    display: block;
+  }
+  .review__text {
+    line-height: 1.5;
+  }
+  .gallery__price i {
+    display: none;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  .how__title:before, .gallery__title:before {
+    top: 0;
+  }
 }
