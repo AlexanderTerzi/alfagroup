@@ -30,8 +30,9 @@ $(function () {
     });
 
     // Hamburger
-	$('.menu-open').click(function (){
+	$('.menu-btn').click(function (){
 		$('.menu-collapse').toggleClass('d-none').css('order', '1');
+    $(this).toggleClass('menu-btn_active');
 		$('.main-menu').toggleClass('menu-opened');
 	})
 
